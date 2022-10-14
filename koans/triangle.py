@@ -18,7 +18,20 @@
 #
 def triangle(a, b, c):
     # DELETE 'PASS' AND WRITE THIS CODE
-    pass
+    if a<=0 or b<=0 or c<=0:
+        raise TriangleError(AttributeError('Negative edge not allowed'))
+    if a + b + c <= 2 * max(a, b, c):
+        raise TriangleError(AttributeError('largest side should be smaller'))
+    if a == b == c:
+        return 'equilateral'
+    elif b == c:
+        return 'isosceles'
+    elif a == c:
+        return 'isosceles'
+    elif a == b:
+        return 'isosceles'
+    else:
+        return 'scalene'
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(Exception):
